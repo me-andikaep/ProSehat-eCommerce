@@ -1,0 +1,27 @@
+.container-header{
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 7%) 0px 4px 6px -1px;
+
+  .wrapper{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    
+
+    .wrapper-center{
+      flex: 2;
+    }
+
+    .wrapper-left{
+      flex: 1;
+    }
+
+    .wrapper-right{
+      flex: 1;
+    }
+  }
+}
