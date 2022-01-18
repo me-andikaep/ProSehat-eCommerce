@@ -1,8 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 
+
+@import './breakpoints';
+
 @import './colors';
 
 @import './custom';
 
-@import './navbar';
+@import './header';
 
+@import './announcements';
+
+@import './slider';

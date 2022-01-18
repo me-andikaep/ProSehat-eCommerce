@@ -1,0 +1,18 @@
+.container-anouncement{
+  height: 30px;
+  width: 100%;
+  background-color: $PrimaryColorLight;
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  position: fixed;
+  z-index: 1500;
+
+  &.open{
+    top: 0;
+    display: flex;
+  }
+}
