@@ -2,7 +2,7 @@ import { Stack } from 'react-bootstrap';
 import Icons from '../icons';
 import SearchMain from '../Search/SearchMain';
 
-const Header = ({ isAnouncement }) => {
+const Header = ({ isAnouncement, isLogin }) => {
 	return (
 		<div className={`container-header ${isAnouncement ? 't-30px' : ''}`}>
 			<div className='wrapper'>
@@ -17,8 +17,14 @@ const Header = ({ isAnouncement }) => {
 					>
 						<Icons type='cart' size='24' className='icon' />
 						<div className='vr' style={{ margin: '20px 0px' }} />
-						<button className='btn-login'>Masuk</button>
-						<button className='btn-regis'>Daftar</button>
+						{isLogin ? (
+							<button className='btn-logout'>Keluar</button>
+						) : (
+							<>
+								<button className='btn-login'>Masuk</button>
+								<button className='btn-regis'>Daftar</button>
+							</>
+						)}
 					</Stack>
 				</div>
 			</div>

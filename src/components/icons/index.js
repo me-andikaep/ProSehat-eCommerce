@@ -2,7 +2,7 @@ import { BiSearch } from 'react-icons/bi';
 import { IoCart } from 'react-icons/io5';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-export default function Icons({ type, size, style, className }) {
+export default function Icons({ type, size, style, className, color }) {
 	switch (type) {
 		case 'search':
 			return (
@@ -16,6 +16,7 @@ export default function Icons({ type, size, style, className }) {
 					style={{ ...style }}
 					className={className}
 					size={size}
+					color={color}
 				/>
 			);
 		case 'arrowRight1':
@@ -24,6 +25,7 @@ export default function Icons({ type, size, style, className }) {
 					style={{ ...style }}
 					className={className}
 					size={size}
+					color={color}
 				/>
 			);
 

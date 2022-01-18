@@ -1,58 +1,58 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Icons from '../icons';
 import Slider from 'react-slick';
-import { DataProduct } from '../../data/Products';
+
 import { useEffect, useState } from 'react';
 import lodash from 'lodash';
 
-const SliderBig = () => {
+const SliderBig = ({ listData }) => {
 	const [data, setData] = useState([]);
 
 	const randomArray = () => {
-		const data = lodash.sampleSize(DataProduct, 5);
+		const data = lodash.sampleSize(listData, 5);
 		setData(data);
 	};
 
 	useEffect(() => {
-		randomArray();
+		if (listData) {
+			randomArray();
+		}
 		return () => {};
-	}, []);
+	}, [listData]);
 
-	console.log('DataProduct', DataProduct);
-	console.log('data', data);
+	// console.log('DataProduct', DataProduct);
+	// console.log('data data', data);
+
+	function SamplePrevArrow(props) {
+		const { className, onClick } = props;
+		return (
+			<div className={className + ' prev-arrow-slider'} onClick={onClick}>
+				<Icons type='arrowLeft1' size='20' color='white' />
+			</div>
+		);
+	}
+
+	function SampleNextArrow(props) {
+		const { className, onClick } = props;
+		return (
+			<div className={className + ' next-arrow-slider'} onClick={onClick}>
+				<Icons type='arrowRight1' size='20' color='white' />
+			</div>
+		);
+	}
 
 	const settings = {
-		// dots: true,
+		dots: true,
 		infinite: true,
-		speed: 500,
+		speed: 2000,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		cssEase: 'linear',
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
 	};
-
-	function SamplePrevArrow(props) {
-		const { className, style, onClick } = props;
-		return (
-			<Icons
-				type='arrowLeft1'
-				size='20'
-				className={className + ' icon'}
-				onClick={onClick}
-			/>
-		);
-	}
-
-	function SampleNextArrow(props) {
-		const { className, style, onClick } = props;
-		return (
-			<Icons
-				type='arrowRight1'
-				size='20'
-				className={className + ' icon'}
-				onClick={onClick}
-			/>
-		);
-	}
 
 	return (
 		<div className='container-slider-big'>

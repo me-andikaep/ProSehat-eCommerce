@@ -67,6 +67,10 @@
       .btn-regis{
         @include btn-primary()
       }
+
+      .btn-logout{
+        @include btn-primary()
+      }
     }
   }
 

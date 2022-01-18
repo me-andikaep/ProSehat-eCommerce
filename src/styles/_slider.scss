@@ -1,44 +1,125 @@
+@mixin arrow-slider-right {
+  line-height: 0;
+  font-size: 0;
+  // top: 50%;
+  height: 30px;
+  width: 30px;
+  -ms-transform: translate(0,-50%);
+  -webkit-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  cursor: pointer;
+  border: none;
+  color: transparent;
+  background: 0 0;
+  outline: 0;
+
+  display: flex;
+  position: absolute;
+  // border: 1px solid #fff;
+  background: #2893e1; 
+  box-shadow: 0 0 20px #F0F0F0;
+  right: 0;
+  
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.7s;
+  border-radius: 50%;
+  
+    &.slick-disabled {
+        opacity: 0 !important;
+  }
+}
+
+@mixin arrow-slider-left {
+  font-size: 0;
+  line-height: 0;
+  // top: 50%;
+  width: 30px;
+  height: 30px;
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: 0;
+  background: 0 0;
+
+  position: absolute;
+  display: flex;
+  background: #2893e1; 
+  // border: 1px solid #fff;
+  box-shadow: 0 0 20px #F0F0F0;
+
+  z-index: 2;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  opacity: 0;
+  transition: opacity 0.7s ;
+
+  &.slick-disabled {
+      opacity: 0 !important;
+  }
+}
+
+
 .container-slider-big{
   width: 100%;
-  height: 50vh;
+  // height: 50vh;
   // display: flex;
-  background-color: coral;
   overflow: hidden;
+  padding: 20px;
 
-  &:hover .arrow{
-    opacity: 1;
-    transition: all 280ms ;
+
+  &:hover {
+    .next-arrow-slider{
+      opacity: 1 !important;
+      transition: opacity 0.7s ;
+      background-color: $PrimaryColor;
+    }
+    .prev-arrow-slider{
+      opacity: 1 !important;
+      transition: opacity 0.7s ;
+      background-color: $PrimaryColor;
+    }
   }
 
-  .arrow{
-    width: 40px;
-    height: 40px;
-    background-color: $ThirdaryColorLight;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position:absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1;
-    transition: all 280ms ;
-    
+  .next-arrow-slider{
+    @include arrow-slider-right()
+  }
 
+  .prev-arrow-slider{
+    @include arrow-slider-left()
+  }
 
-    &.left {
-      left: 25px;
-    }
+  .slick-next:before {
+    display: none;
+  }
 
-    &.right {
-      right: 25px;
-    }
+  .slick-prev:before{
+    display: none;
   }
 
   .wrapper-carousel{
     width: 100%;
-    height: 100%;
+    height: 400px;
     z-index: 1;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    @include media("<tablet") {
+      height: 300px;
+    }
+
+    @include media("<LGPhone") {
+      height: 200px;
+    }
 
     .carousel-img{
       height: 100%;
