@@ -6,8 +6,7 @@ import SliderBig from '../components/Slider/SliderBig';
 import SliderItems from '../components/Slider/SliderItems';
 import { DataProduct } from '../data/Products';
 
-const Home = ({ isLogin }) => {
-	const [isAnouncement, setIsAnouncement] = useState(true);
+const Home = ({ isAnouncement }) => {
 	const [listProduct, setListProduct] = useState([]);
 
 	useEffect(() => {
@@ -15,23 +14,19 @@ const Home = ({ isLogin }) => {
 	}, []);
 
 	return (
-		<div>
-			<Announcement isAnouncement={isAnouncement} />
-			<Header isAnouncement={isAnouncement} isLogin={isLogin} />
-			<main
-				className={`container container-main ${
-					isAnouncement ? 'isAnounce' : ''
-				}`}
-			>
-				<Stack gap={3}>
-					<SliderBig listData={listProduct} />
-					<SliderItems listData={listProduct} category="men's clothing" />
-					<SliderItems listData={listProduct} category="women's clothing" />
-					<SliderItems listData={listProduct} category='electronics' />
-					<SliderItems listData={listProduct} category='jewelery' />
-				</Stack>
-			</main>
-		</div>
+		// <div>
+		<main
+			className={`container container-main ${isAnouncement ? 'isAnounce' : ''}`}
+		>
+			<Stack gap={3}>
+				<SliderBig listData={listProduct} />
+				<SliderItems listData={listProduct} category="men's clothing" />
+				<SliderItems listData={listProduct} category="women's clothing" />
+				<SliderItems listData={listProduct} category='electronics' />
+				<SliderItems listData={listProduct} category='jewelery' />
+			</Stack>
+		</main>
+		// </div>
 	);
 };
 

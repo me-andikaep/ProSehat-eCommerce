@@ -5,7 +5,7 @@
   box-shadow: rgb(0 0 0 / 7%) 0px 4px 6px -1px;
   position: fixed;
 
-  z-index: 1500;
+  z-index: 1000;
 
   &.t-30px{
     top: 30px;
@@ -70,6 +70,10 @@
 
       .btn-logout{
         @include btn-primary()
+      }
+
+      .cart-controller{
+        cursor: pointer;
       }
     }
   }

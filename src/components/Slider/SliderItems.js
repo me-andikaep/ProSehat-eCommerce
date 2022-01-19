@@ -2,12 +2,15 @@ import Slider from 'react-slick';
 import lodash from 'lodash';
 import Icons from '../icons';
 import { Stack } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 const SliderItems = ({ listData, category }) => {
-	console.log(
-		'filter',
-		listData.filter((dt) => dt.category === category)
-	);
+	// console.log(
+	// 	'filter',
+	// 	listData.filter((dt) => dt.category === category)
+	// );
+
+	let history = useHistory();
 
 	function SamplePrevArrow(props) {
 		const { className, onClick } = props;
@@ -64,7 +67,7 @@ const SliderItems = ({ listData, category }) => {
 							<div
 								key={dt.id}
 								className='items-card'
-								onClick={() => console.log('clicked')}
+								onClick={() => history.push(`/detail/${dt.id}`)}
 							>
 								<div className='wrapper-item-img'>
 									<img src={dt.image} alt={dt.id} className='carousel-img' />

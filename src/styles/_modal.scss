@@ -1,0 +1,16 @@
+.container-modal-login{
+
+  .action-btn{
+    display: flex;
+    column-gap: 1rem;
+
+    .btn-login{
+      @include btn-primary()
+    }
+  
+    .btn-cancel{
+      @include btn-outline-primary()
+    }
+  }
+  
+}

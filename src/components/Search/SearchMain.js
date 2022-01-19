@@ -5,7 +5,7 @@ import { DataCategories } from '../../data/Categories';
 
 const SearchMain = () => {
 	const refInput = useRef();
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
 		['click', 'touchend'].forEach((e) => {
