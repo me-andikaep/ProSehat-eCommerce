@@ -66,7 +66,6 @@
   }
 }
 
-
 .container-slider-big{
   width: 100%;
   // height: 50vh;
@@ -126,4 +125,146 @@
       object-fit: cover;
     }
   }
+}
+
+.container-slider-items{
+  width: 100%;
+
+  // height: 50vh;
+
+  overflow: hidden;
+  padding: 20px;
+
+  .title{
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    h5{
+      margin: 0;
+    }
+    .more{
+      color: $PrimaryColor;
+      cursor: pointer;
+      font-weight:bold;
+  
+      &:hover{
+        color: $PrimaryColorDark;
+      }
+    }
+  }
+
+  &:hover {
+    .next-arrow-slider{
+      opacity: 1 !important;
+      transition: opacity 0.7s ;
+      background-color: $PrimaryColor;
+    }
+    .prev-arrow-slider{
+      opacity: 1 !important;
+      transition: opacity 0.7s ;
+      background-color: $PrimaryColor;
+    }
+  }
+
+  .next-arrow-slider{
+    @include arrow-slider-right()
+  }
+
+  .prev-arrow-slider{
+    @include arrow-slider-left()
+  }
+
+  .slick-next:before {
+    display: none;
+  }
+
+  .slick-prev:before{
+    display: none;
+  }
+
+  .wrapper-items{
+    width: 100%;
+    // background-color: azure;
+    // height: 350px;
+    z-index: 1;
+    
+    .slick-slide{
+      text-align: center;
+    }
+    
+    .items-card{
+      max-width:300px ;
+      height: 350px;
+      border-radius: 8px;
+      // border: 1px solid $ThirdaryColorLight;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 1px 6px 0 var(--N700,rgba(49,53,59,0.12));
+      cursor: pointer;
+
+      @include media("<1040px") {
+        max-width: 250px;
+        height: 300px;
+      }
+
+      @include media("<870px") {
+        max-width: 200px;
+        height: 250px;
+      }
+      
+      @include media("<LGPhone") {
+        max-width: 120px;
+        height: 170px;
+      }
+      
+      .wrapper-item-img{
+        height: 250px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include media("<1040px") {
+          height: 200px;
+        }
+  
+        @include media("<870px") {
+          height: 150px;
+        }
+        
+        @include media("<LGPhone") {
+          height: 70px;
+        }
+
+        img{
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .item-info{
+        text-align: left;
+        padding: 8px;
+
+        .item-name{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          font-size: 14px;
+        }
+
+        .item-price{
+          font-size: 16px;
+          font-weight: bolder;
+        }
+
+      }
+    }
+  }
+  
 }

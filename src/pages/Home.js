@@ -23,12 +23,12 @@ const Home = ({ isLogin }) => {
 					isAnouncement ? 'isAnounce' : ''
 				}`}
 			>
-				<Stack gap={2}>
+				<Stack gap={3}>
 					<SliderBig listData={listProduct} />
-					<SliderItems listData={listProduct} category='electronics' />
-					<SliderItems listData={listProduct} category='jewelery' />
 					<SliderItems listData={listProduct} category="men's clothing" />
 					<SliderItems listData={listProduct} category="women's clothing" />
+					<SliderItems listData={listProduct} category='electronics' />
+					<SliderItems listData={listProduct} category='jewelery' />
 				</Stack>
 			</main>
 		</div>
