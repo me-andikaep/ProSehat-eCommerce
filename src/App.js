@@ -11,6 +11,7 @@ import Header from './components/header/Header';
 import { useDispatch } from 'react-redux';
 import { Actions } from './redux/reducers/cartReducer';
 import { CartList } from './data/CartList';
+import Cart from './pages/Cart';
 
 function App() {
 	// const [isLogin, setIsLogin] = useState(false);
@@ -68,6 +69,13 @@ function App() {
 							setModalLoginIsOpen={() => handleModalLogin()}
 							{...props}
 						/>
+					)}
+				/>
+				<Route
+					path='/cart'
+					exact
+					render={(props) => (
+						<Cart isAnouncement={isAnouncement} isLogin={isLogin} {...props} />
 					)}
 				/>
 			</Switch>

@@ -41,6 +41,7 @@ const Header = ({ isAnouncement, isLogin, setModalLoginIsOpen }) => {
 
 	const onClickCart = () => {
 		if (isLogin) {
+			history.push('/cart');
 		} else {
 			return setModalLoginIsOpen();
 		}
@@ -62,7 +63,9 @@ const Header = ({ isAnouncement, isLogin, setModalLoginIsOpen }) => {
 					>
 						<div className='cart-controller' onClick={() => onClickCart()}>
 							<Icons type='cart' size='24' className='icon' />
-							{cartAmount && <Badge className='badge'>{cartAmount}</Badge>}
+							{cartAmount !== 0 && (
+								<Badge className='badge'>{cartAmount}</Badge>
+							)}
 						</div>
 						<div className='vr' style={{ margin: '20px 0px' }} />
 						{isLogin ? (
