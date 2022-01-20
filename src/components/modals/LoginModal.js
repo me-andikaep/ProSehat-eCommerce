@@ -1,10 +1,19 @@
 import React, { useRef } from 'react';
 import { Form, Modal } from 'react-bootstrap';
 import { UsersList } from '../../data/Users';
+import { CartList } from '../../data/CartList';
+import { useDispatch } from 'react-redux';
+import { Actions } from '../../redux/reducers/cartReducer';
 
 const LoginModal = ({ ModalLoginHandleShow, handleClose, setIsLogin }) => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
+
+	const dispatch = useDispatch();
+
+	// console.log('usersList', UsersList);
+	// john@gmail.com
+	// m38rmF$
 
 	const checkValid = async (email, password) => {
 		const cekemail = UsersList.find((dt) => {
@@ -27,8 +36,16 @@ const LoginModal = ({ ModalLoginHandleShow, handleClose, setIsLogin }) => {
 			return dt.email === email && dt.password === password;
 		});
 
+		// console.log('results', results)
+
 		return results;
 	};
+
+	const filterCartByUserId = (id) => {
+		const filtered = CartList.filter((dt => dt.userId === id))
+		// console.log('Filtered', filtered)
+		dispatch({ type: Actions.SET_CART_LIST_BY_ID, cartById: filtered });
+	}
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
@@ -36,15 +53,16 @@ const LoginModal = ({ ModalLoginHandleShow, handleClose, setIsLogin }) => {
 		let email = emailRef?.current?.value;
 		let password = passwordRef?.current?.value;
 
-		console.log('email', email);
-		console.log('password', password);
-		console.log('UsersList', UsersList);
+		// console.log('email', email);
+		// console.log('password', password);
+		// console.log('UsersList', UsersList);
 
 		const result = await checkValid(email, password);
 
-		console.log('result', result);
+		// console.log('result', result);
 
 		if (result) {
+			filterCartByUserId(result.id)
 			setIsLogin(result);
 			handleClose();
 		}
@@ -82,7 +100,7 @@ const LoginModal = ({ ModalLoginHandleShow, handleClose, setIsLogin }) => {
 					</Form.Group>
 
 					<div className='action-btn'>
-						<button className='btn-login' onClick={() => onSubmit()}>
+						<button className='btn-login' onClick={(e) => onSubmit(e)}>
 							Submit
 						</button>
 						<button
@@ -99,6 +117,6 @@ const LoginModal = ({ ModalLoginHandleShow, handleClose, setIsLogin }) => {
 			</Modal.Body>
 		</Modal>
 	);
-};
+};;
 
 export default LoginModal;

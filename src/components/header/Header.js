@@ -1,21 +1,50 @@
-import { Stack } from 'react-bootstrap';
+import { useCallback, useEffect, useState } from 'react';
+import { Badge, Stack } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Icons from '../icons';
 import SearchMain from '../Search/SearchMain';
+import lodash from 'lodash';
 
 const Header = ({ isAnouncement, isLogin, setModalLoginIsOpen }) => {
+	let history = useHistory();
+
+	const [cartAmount, setCartAmount] = useState(null);
+
+	const cartState = useSelector((state) => state?.cart);
+	console.log('cartState', cartState);
+	console.log('cartAmount', cartAmount);
+
+	const countAmmount = useCallback(() => {
+		var length = 0;
+
+		lodash.forEach(
+			cartState?.cartById,
+			(arr) => (length += arr.products.length)
+		);
+		return length;
+	}, [cartState?.cartById]);
+
+	useEffect(() => {
+		let amount = countAmmount();
+
+		setCartAmount(amount);
+
+		return () => {};
+	}, [cartState.cartById, countAmmount]);
+
 	const onLogout = () => {
 		localStorage.removeItem('eCommerce-user');
+		history.replace('/');
 		window.location.reload();
 	};
 
 	const onClickCart = () => {
 		if (isLogin) {
 		} else {
-			setModalLoginIsOpen();
+			return setModalLoginIsOpen();
 		}
 	};
-	let history = useHistory();
 
 	return (
 		<div className={`container-header ${isAnouncement ? 't-30px' : ''}`}>
@@ -33,6 +62,7 @@ const Header = ({ isAnouncement, isLogin, setModalLoginIsOpen }) => {
 					>
 						<div className='cart-controller' onClick={() => onClickCart()}>
 							<Icons type='cart' size='24' className='icon' />
+							{cartAmount && <Badge className='badge'>{cartAmount}</Badge>}
 						</div>
 						<div className='vr' style={{ margin: '20px 0px' }} />
 						{isLogin ? (

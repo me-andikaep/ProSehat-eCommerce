@@ -74,6 +74,12 @@
 
       .cart-controller{
         cursor: pointer;
+
+        .badge{
+          background-color: $PrimaryColorLight !important;
+          // position: absolute;
+          font-size: 10;
+        }
       }
     }
   }

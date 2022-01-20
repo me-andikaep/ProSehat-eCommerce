@@ -5,9 +5,12 @@ import Header from '../components/header/Header';
 import SliderBig from '../components/Slider/SliderBig';
 import SliderItems from '../components/Slider/SliderItems';
 import { DataProduct } from '../data/Products';
+import { CartList } from '../data/CartList';
 
 const Home = ({ isAnouncement }) => {
 	const [listProduct, setListProduct] = useState([]);
+
+	console.log('CartList', CartList);
 
 	useEffect(() => {
 		setListProduct(DataProduct);
