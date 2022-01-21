@@ -1,11 +1,16 @@
 import { BiSearch } from 'react-icons/bi';
 import { IoCart } from 'react-icons/io5';
 import {
-	IoIosAdd,
+	// IoIosAdd,
 	IoIosArrowBack,
 	IoIosArrowForward,
-	IoIosRemove,
+	// IoIosRemove,
 } from 'react-icons/io';
+import { ImBin } from 'react-icons/im';
+import {
+	MdAddCircleOutline,
+	MdOutlineRemoveCircleOutline,
+} from 'react-icons/md';
 
 export default function Icons({
 	type,
@@ -42,7 +47,7 @@ export default function Icons({
 			);
 		case 'remove':
 			return (
-				<IoIosRemove
+				<MdOutlineRemoveCircleOutline
 					style={{ ...style }}
 					className={className}
 					size={size}
@@ -52,7 +57,18 @@ export default function Icons({
 			);
 		case 'add':
 			return (
-				<IoIosAdd
+				<MdAddCircleOutline
+					style={{ ...style }}
+					className={className}
+					size={size}
+					color={color}
+					onClick={onClick}
+				/>
+			);
+
+		case 'removeBin':
+			return (
+				<ImBin
 					style={{ ...style }}
 					className={className}
 					size={size}
