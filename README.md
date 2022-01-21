@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## README 
+```````````````
+Untuk Login dapat menggunakan email dan password di json.
+login digunakan untuk mengakses cartnya.
+```````````````
+
 ## Available Scripts
 
 In the project directory, you can run:
