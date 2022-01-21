@@ -108,7 +108,7 @@ const Cart = ({ isAnouncement }) => {
 			}`}
 		>
 			<Row>
-				<Col xs={12} md={8}>
+				<Col xs={12} md={8} className='mb-3'>
 					<h5 className='mb-2'>Keranjang Anda</h5>
 					{listCart &&
 						listCart.map((dt, i) => (
@@ -178,7 +178,7 @@ const Cart = ({ isAnouncement }) => {
 						))}
 				</Col>
 				<Col xs={12} md={4}>
-					<TotalShopCartCard />
+					<TotalShopCartCard listCart={listCart} />
 				</Col>
 			</Row>
 		</main>

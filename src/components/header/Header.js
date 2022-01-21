@@ -12,8 +12,8 @@ const Header = ({ isAnouncement, isLogin, setModalLoginIsOpen }) => {
 	const [cartAmount, setCartAmount] = useState(null);
 
 	const cartState = useSelector((state) => state?.cart);
-	console.log('cartState', cartState);
-	console.log('cartAmount', cartAmount);
+	// console.log('cartState', cartState);
+	// console.log('cartAmount', cartAmount);
 
 	const countAmmount = useCallback(() => {
 		var length = 0;

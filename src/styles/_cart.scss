@@ -76,4 +76,16 @@
     height: 2px !important;
   }
 
+
+  .wrapper-summery-order{
+    box-shadow: 0 1px 6px 0 var(--color-shadow,rgba(49,53,59,0.12));
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+
+    .btn-checkout{
+      @include btn-primary();
+      font-size: 16px;
+    }
+  }
 }

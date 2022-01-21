@@ -10,7 +10,7 @@ import { CartList } from '../data/CartList';
 const Home = ({ isAnouncement }) => {
 	const [listProduct, setListProduct] = useState([]);
 
-	console.log('CartList', CartList);
+	// console.log('CartList', CartList);
 
 	useEffect(() => {
 		setListProduct(DataProduct);
