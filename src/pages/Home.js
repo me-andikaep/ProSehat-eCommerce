@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Stack } from 'react-bootstrap';
-import Announcement from '../components/announcements/Announcement';
-import Header from '../components/header/Header';
+// import Announcement from '../components/announcements/Announcement';
+// import Header from '../components/header/Header';
 import SliderBig from '../components/Slider/SliderBig';
 import SliderItems from '../components/Slider/SliderItems';
 import { DataProduct } from '../data/Products';
-import { CartList } from '../data/CartList';
+// import { CartList } from '../data/CartList';
 
 const Home = ({ isAnouncement }) => {
 	const [listProduct, setListProduct] = useState([]);

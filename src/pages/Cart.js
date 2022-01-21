@@ -45,7 +45,7 @@ const Cart = ({ isAnouncement }) => {
 		return () => {};
 	}, [cartState]);
 
-	console.log('listCart', listCart);
+	// console.log('listCart', listCart);
 
 	const onChangeAmount = (idxList, idxItem, operator) => {
 		let newArr = [...listCart];

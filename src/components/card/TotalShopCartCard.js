@@ -6,7 +6,7 @@ const TotalShopCartCard = ({ listCart }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 
 	// console.log('cartState', cartState);
-	console.log('cartAmount', cartAmount);
+	// console.log('cartAmount', cartAmount);
 
 	const countAmmount = useCallback(() => {
 		let length = 0;

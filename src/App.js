@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import LoginModal from './components/modals/LoginModal';
@@ -20,7 +21,7 @@ function App() {
 	const [modalLoginIsOpen, setModalLoginIsOpen] = useState(false);
 	const [isAnouncement, setIsAnouncement] = useState(true);
 
-	console.log('isLogin', isLogin);
+	// console.log('isLogin', isLogin);
 
 	const handleModalLogin = (modal) => {
 		setModalLoginIsOpen(!modalLoginIsOpen);
